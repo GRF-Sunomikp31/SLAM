@@ -14,11 +14,11 @@
 
 ##### 使用indigo包
 
-![1](/home/gipsy/Desktop/rgbdslam_v2/IMG/1.png)
+![1](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/1.png)
 
 这里rosdep update有一个报错，先暂时跳过；
 
-![2](/home/gipsy/Desktop/rgbdslam_v2/IMG/2.png)
+![2](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/2.png)
 
 这里用catkin_make编译工作空间的时候，有报错，这个报错应该是说这个版本的rgbdslam_2依赖的是qt4；
 
@@ -30,19 +30,19 @@
 
 `sudo apt-get install qt4*`  安装qt4；
 
-![3](/home/gipsy/Desktop/rgbdslam_v2/IMG/3.png)
+![3](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/3.png)
 
 这个错误的 原因是：
 
 ##### 使用kinetic包
 
-![4](/home/gipsy/Desktop/rgbdslam_v2/IMG/4.png)
+![4](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/4.png)
 
 同样报错；
 
 这里利用`catkin_make`太卡了，利用`catkin_make -j2`加速；
 
-![5](/home/gipsy/Desktop/rgbdslam_v2/IMG/5.png)
+![5](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/5.png)
 
 这里编译报错都是 ） 的错误，涉及到的函数有： g2o::BlockSolverX(linearSolver)、g2o::OptimizationAlgorithmDogleg(solver_ptr)、SlamBlockSolver(linearSolver)、g2o::OptimizationAlgorithmLevenberg(solver)、round(float d)
 
@@ -78,7 +78,7 @@ sudo make install
 
 重新装好g2o之后，`catkin_make -j2`成功编译：
 
-![6](/home/gipsy/Desktop/rgbdslam_v2/IMG/6.png)
+![6](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/6.png)
 
 启动之前，先source以下：`source ~/rgbdslam_k_catkin_ws/devel/setup.bash` 
 
@@ -86,7 +86,7 @@ sudo make install
 
 有如下报错：
 
-![7](/home/gipsy/Desktop/rgbdslam_v2/IMG/7.png)
+![7](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/7.png)
 
 主要报错信息： `error while loading shared libraries: libg2o_ext_freeglut_minimal.so: cannot open shared object file: No such file or directory`
 
@@ -103,19 +103,19 @@ sudo ldconfig
 
 重新运行程序，成功启动：
 
-![8](/home/gipsy/Desktop/rgbdslam_v2/IMG/8.png)
+![8](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/8.png)
 
 #### 配置数据集
 
 在下述链接下载数据集：http://vision.in.tum.de/data/datasets/rgbd-dataset/download#freiburg1_xyz
 
-![9](/home/gipsy/Desktop/rgbdslam_v2/IMG/9.png)
+![9](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/9.png)
 
 后面需要按照他的配置修改以下launch文件：https://blog.csdn.net/XindaBlack/article/details/102499364
 
 配置成功：
 
-![10](/home/gipsy/Desktop/rgbdslam_v2/IMG/10.png)
+![10](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/10.png)
 
 ### 利用D435i跑rgbdslam_v2
 
@@ -125,11 +125,11 @@ sudo ldconfig
 
 第一次运行的时候，有如下报错，意思就是深度图和rgbd图不匹配：
 
-![11](/home/gipsy/Desktop/rgbdslam_v2/IMG/11.png)
+![11](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/11.png)
 
 但是第二次重新运行就好了：
 
-![12](/home/gipsy/Desktop/rgbdslam_v2/IMG/12.png)
+![12](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/rgbdslam_v2/IMG/12.png)
 
 ## 知识点总结
 
