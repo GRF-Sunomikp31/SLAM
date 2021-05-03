@@ -6,7 +6,7 @@
 
 什么是八叉树地图：
 
-![2](C:\Users\lenovo\Desktop\八叉树\IMG\2.png)
+![2](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/OctoMap/IMG/2.png)
 
 大搞意思就是将一个空间，很多次八等分，再细分进而让地图更加精确；最简单的， 八叉树的节点存储了它是否被占据的信息。可以用0表示空白，1表示占据，当然，现在很多方式都是通过多次观察用概率的方法给出这个点的占据信息。
 
@@ -48,13 +48,13 @@ sudo apt-get install ros-melodic-octomap-server
 
 安装好之后，启动rviz，这时候这个模块会多一个octo打头的模组.如下图所示:
 
-![3](/home/gipsy/Desktop/八叉树/IMG/3.png)
+![3](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/OctoMap/IMG/3.png)
 
 这里现在的任务是查看，rgbdslam_v2发布的点云数据的通过什么话题发送的，然后在launch文件中修改相应的点云接受话题，转换显示即可；
 
 利用rviz查看如下：输出点云话题节点为：/rgbdslam/online_clouds    ,图像话题为：/camera/rgb/image_color
 
-![4](/home/gipsy/Desktop/八叉树/IMG/4.png)
+![4](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/OctoMap/IMG/4.png)
 
 launch文件中：文件里面有的frame_id 和 remap topic 的值必须和发布节点中的frame_id以及数据发布的topic一致。
 
@@ -66,11 +66,11 @@ frame_id 为/camera， remap topic为/rgbdslam/online_clouds ，运行：roslaun
 
 frame_id 应该是一个tf关系，这里查看tf关系如下所示：这是运行rgbdslam代码的关系
 
-![5](/home/gipsy/Desktop/八叉树/IMG/5.png)
+![5](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/OctoMap/IMG/5.png)
 
 这是只运行bag的关系：
 
-![6](/home/gipsy/Desktop/八叉树/IMG/6.png)
+![6](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/OctoMap/IMG/6.png)
 
 这里修改为kinect之后，产生了一个新的报错：
 
@@ -82,9 +82,9 @@ frame_id 应该是一个tf关系，这里查看tf关系如下所示：这是运�
 
 kinect下是有数据的，但是rviz报错这个数据类型不对：
 
-![7](/home/gipsy/Desktop/八叉树/IMG/7.png)
+![7](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/OctoMap/IMG/7.png)
 
-![8](/home/gipsy/Desktop/八叉树/IMG/8.png)
+![8](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/OctoMap/IMG/8.png)
 
 这哭还有一个问题，可能是这个点云是彩色的稠密点云rgb格式的，一般处理的点云是白色的点云
 
@@ -104,7 +104,7 @@ sudo apt-get remove ros-melodic-octomap-server
 
 出去和同学吃了个饭，代码跑通了哈哈哈，应该是重新卸载，再下载octomap-server 这个包的原因。不应该是我应该选occupancygrid节点；
 
-![9](/home/gipsy/Desktop/八叉树/IMG/9.png)
+![9](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/OctoMap/IMG/9.png)
 
 运行成功的状态：
 
