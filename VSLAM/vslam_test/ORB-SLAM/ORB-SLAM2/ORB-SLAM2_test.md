@@ -39,7 +39,7 @@ https://blog.csdn.net/qq_17232031/article/details/79519695   //关于调用摄�
 
 现在的问题是：我直接将之前编译的ORB-SLAM2（编译成功的，修改了sleep的bug）直接放到ROS工作空间下面，添加了`-lboost_system`，报错如下：
 
-![2](/home/gipsy/Desktop/SLAM/IMG/2.png)
+![2](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/ORB-SLAM/ORB-SLAM2/IMG/2.png)
 
 具体报错如下：
 
@@ -103,7 +103,7 @@ rosrun ORB_SLAM2 Mono Vocabulary/ORBvoc.txt Examples/ROS/ORB_SLAM2/Asus.yaml   /
 
 但是现在问题是运行上面代码，显示界面，但是没有特征点:
 
-![4](/home/gipsy/Desktop/SLAM/IMG/4.png)
+![4](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/ORB-SLAM/ORB-SLAM2/IMG/4.png)
 
 现在怀疑ORB-SLAM2这个节点没有正确订阅到相机的节点；Mono订阅的是/camera/image_raw话题，但是目前这个相机节点只会发布/camera/image_raw节点数据，现在的方法就是修改Mono中的节点订阅信息；在catkin_ws/src/ORB_SLAM2/Examples/ROS/ORB_SLAM2/src的ros_mono.cc  修改如下：
 
@@ -114,7 +114,7 @@ ros::Subscriber sub = nodeHandler.subscribe("/usb_cam/image_raw", 1, &ImageGrabb
 
 运行成功：
 
-![3](/home/gipsy/Desktop/SLAM/IMG/3.png)
+![3](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/ORB-SLAM/ORB-SLAM2/IMG/3.png)
 
 参考资料：
 
@@ -186,11 +186,11 @@ https://github.com/IntelRealSense/realsense-ros
 
 现在就是roslaunch能进去，但是还是有报错：
 
-![5](/home/gipsy/Desktop/SLAM/IMG/5.png)
+![5](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/ORB-SLAM/ORB-SLAM2/IMG/5.png)
 
 我参考这个`https://blog.csdn.net/fyf8733/article/details/107382599/`  删除了下面四个包：
 
-![6](/home/gipsy/Desktop/SLAM/IMG/6.png)
+![6](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/ORB-SLAM/ORB-SLAM2/IMG/6.png)
 
 但还是有问题；
 
@@ -226,7 +226,7 @@ ORB-SLAM2下：
 
 **记得：修改完ros_rgb.cc文件之后，记得./build_ros.sh重新编译，在catkin_make**
 
-![9](/home/gipsy/Desktop/SLAM/IMG/9.png)
+![9](https://github.com/GRF-Sunomikp31/SLAM/blob/main/VSLAM/vslam_test/ORB-SLAM/ORB-SLAM2/IMG/9.png)
 
 成功了！
 
