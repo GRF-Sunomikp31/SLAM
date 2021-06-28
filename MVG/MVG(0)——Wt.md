@@ -35,5 +35,6 @@ Multiple View Geometry in Computer Vision是Richard Hartley（澳大利亚国立
 
 
 SLAM中的几何与学习方法：https://github.com/yanyan-li/SLAM-BOOK
+这是一个还没有完成的书籍项目，看着还阔以；
 
 Notes同步更新github：https://github.com/GRF-Sunomikp31/SLAM/tree/main/MVG
